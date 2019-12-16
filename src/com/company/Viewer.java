@@ -25,11 +25,12 @@ public class Viewer extends JFrame {
             g.translate(getWidth()/2, getHeight()/2);
             g.setColor(Color.white);
             g.fillRect(-getWidth()/2, -getHeight()/2, getWidth(), getHeight());
-            g.setColor(Color.black);
+           // g.setColor(Color.black);
+                g.setColor(Color.black); //Можно поставить после построения Куба, тогда оси будут поверх его изображения
+                g.drawLine(0, -getHeight()/2, 0, getHeight()/2);
+                g.drawLine(-getWidth()/2, 0, getWidth()/2,0);
             cube.drawPers(g, 500);
-            g.setColor(Color.black);
-            g.drawLine(0, -getHeight()/2, 0, getHeight()/2);
-            g.drawLine(-getWidth()/2, 0, getWidth()/2,0);
+
             }
         };
 

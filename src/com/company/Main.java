@@ -24,9 +24,15 @@ public class Main
         R3Vector d = f.VectNormal();
         d.out();
         Cube cube = new Cube();
-        cube.scale(200);
+        /*cube.scale(200);
         cube.translate(-50, -50, -50);
         cube.rotate(125,125,125);
+        Viewer v = new Viewer(cube);
+        Controller k = new Controller(cube,v);*/
+        int scale = 200;
+        cube.scale(scale);
+        cube.translate(-scale/2, -scale/2, -scale/2);
+        cube.rotate(125,125,125);//Если закомментируем, сможем проверить центр
         Viewer v = new Viewer(cube);
         Controller k = new Controller(cube,v);
     }

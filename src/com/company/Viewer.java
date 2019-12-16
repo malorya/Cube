@@ -27,6 +27,9 @@ public class Viewer extends JFrame {
             g.fillRect(-getWidth()/2, -getHeight()/2, getWidth(), getHeight());
             g.setColor(Color.black);
             cube.drawPers(g, 500);
+            g.setColor(Color.black);
+            g.drawLine(0, -getHeight()/2, 0, getHeight()/2);
+            g.drawLine(-getWidth()/2, 0, getWidth()/2,0);
             }
         };
 
@@ -49,7 +52,6 @@ public class Viewer extends JFrame {
                 repaint();
             }
         });
-
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

@@ -76,17 +76,23 @@ public class Facet
         t[1] = -k/(vertex[1].getZ()-k);
         t[2] = -k/(vertex[2].getZ()-k);
         t[3] = -k/(vertex[3].getZ()-k);
-        path.moveTo(vertex[0].getX()*t[0], vertex[0].getY()*t[0]);
-        path.lineTo(vertex[1].getX()*t[1], vertex[1].getY()*t[1]);
-        path.lineTo(vertex[2].getX()*t[2], vertex[2].getY()*t[2]);
-        path.lineTo(vertex[3].getX()*t[3], vertex[3].getY()*t[3]);
-        path.lineTo(vertex[0].getX()*t[0], vertex[0].getY()*t[0]);
-        path.closePath();
-        if (light())
+        R3Vector vector[] = new R3Vector[4];
+        for (  int i=0; i<4; i++)
         {
-            g.setColor(color);
-            g.fill(path);
+            vector[i] = new R3Vector (vertex[i].getX()*t[i], vertex[i].getY()*t[i],vertex[i].getZ());
         }
+           path.moveTo(vector[0].getX(), vector[0].getY());
+           path.lineTo(vector[1].getX(), vector[1].getY());
+           path.lineTo(vector[2].getX(), vector[2].getY());
+           path.lineTo(vector[3].getX(), vector[3].getY());
+           path.lineTo(vector[0].getX(), vector[0].getY());
+           path.closePath();
+           Facet facet = new Facet(vector[0], vector[1],vector[2], vector[3]);
+           if (facet.light())
+           {
+               g.setColor(color);
+               g.fill(path);
+           }
 
        }
        public boolean light()

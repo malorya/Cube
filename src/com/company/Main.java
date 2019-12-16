@@ -23,9 +23,11 @@ public class Main
         f.print();
         R3Vector d = f.VectNormal();
         d.out();
-        Cube k = new Cube();
-        k.scale(200);
-        k.rotate(45,30,90);
-        Viewer v = new Viewer(k);
+        Cube cube = new Cube();
+        cube.scale(200);
+        cube.translate(-50, -50, -50);
+        cube.rotate(125,125,125);
+        Viewer v = new Viewer(cube);
+        Controller k = new Controller(cube,v);
     }
 }

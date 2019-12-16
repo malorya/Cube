@@ -45,7 +45,7 @@ public class Viewer extends JFrame {
         vslider1.addChangeListener(new ChangeListener(){
             public void stateChanged(ChangeEvent e){
                 int step = vslider1.getValue();
-                cube.rotate(step, 0, 0);
+                cube.rotate(0, step, 0);
                 repaint();
             }
         });
